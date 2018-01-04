@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>conduent-icon-font glyphs preview</title>
+
+    <style>
+      /* Page Styles */
+
+      * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #fff;
+        color: #444;
+        font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      a,
+      a:visited {
+        color: #888;
+        text-decoration: underline;
+      }
+      a:hover,
+      a:focus { color: #000; }
+
+      header {
+        border-bottom: 2px solid #ddd;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 20px 0;
+      }
+
+      header h1 {
+        color: #888;
+        float: left;
+        font-size: 36px;
+        font-weight: 300;
+      }
+
+      header a {
+        float: right;
+        font-size: 14px;
+      }
+
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+        min-width: 960px;
+        padding: 0 40px;
+        width: 90%;
+      }
+
+      .glyph {
+        border-bottom: 1px dotted #ccc;
+        padding: 10px 0 20px;
+        margin-bottom: 20px;
+      }
+
+      .preview-glyphs { vertical-align: bottom; }
+
+      .preview-scale {
+        color: #888;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      .step {
+        display: inline-block;
+        line-height: 1;
+        position: relative;
+        width: 10%;
+      }
+
+      .step .letters,
+      .step i {
+        -webkit-transition: opacity .3s;
+        -moz-transition: opacity .3s;
+        -ms-transition: opacity .3s;
+        -o-transition: opacity .3s;
+        transition: opacity .3s;
+      }
+
+      .step:hover .letters { opacity: 1; }
+      .step:hover i { opacity: .3; }
+
+      .letters {
+        opacity: .3;
+        position: absolute;
+      }
+
+      .characters-off .letters { display: none; }
+      .characters-off .step:hover i { opacity: 1; }
+
+      
+      .size-12 { font-size: 12px; }
+      
+      .size-14 { font-size: 14px; }
+      
+      .size-16 { font-size: 16px; }
+      
+      .size-18 { font-size: 18px; }
+      
+      .size-21 { font-size: 21px; }
+      
+      .size-24 { font-size: 24px; }
+      
+      .size-36 { font-size: 36px; }
+      
+      .size-48 { font-size: 48px; }
+      
+      .size-60 { font-size: 60px; }
+      
+      .size-72 { font-size: 72px; }
+      
+
+      .usage { margin-top: 10px; }
+
+      .usage input {
+        font-family: monospace;
+        margin-right: 3px;
+        padding: 2px 5px;
+        text-align: center;
+      }
+
+      .usage .point { width: 150px; }
+
+      .usage .class { width: 250px; }
+
+      footer {
+        color: #888;
+        font-size: 12px;
+        padding: 20px 0;
+      }
+
+      /* Icon Font: conduent-icon-font */
+
+      @font-face {
+  font-family: "conduent-icon-font";
+  src: url("./conduent-icon-font.eot?") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "conduent-icon-font";
+  src: url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff"),
+       url("./conduent-icon-font.ttf") format("truetype"),
+       url("./conduent-icon-font.svg#conduent-icon-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "conduent-icon-font";
+    src: url("./conduent-icon-font.svg#conduent-icon-font") format("svg");
+  }
+}
+
+      [data-icon]:before { content: attr(data-icon); }
+
+      [data-icon]:before,
+      .i-cwf-arrow-right-icon:before,
+.i-cwf-article-icon:before,
+.i-cwf-blog-icon:before,
+.i-cwf-brochure-icon:before,
+.i-cwf-caret-down:before,
+.i-cwf-caret-down-icon:before,
+.i-cwf-caret-right-icon:before,
+.i-cwf-case-study-icon:before,
+.i-cwf-customer-service-icon:before,
+.i-cwf-download-icon:before,
+.i-cwf-ebook-icon:before,
+.i-cwf-email-icon:before,
+.i-cwf-fb-icon:before,
+.i-cwf-form-icon:before,
+.i-cwf-forward-slash-icon:before,
+.i-cwf-hamburger-icon:before,
+.i-cwf-infographic-icon:before,
+.i-cwf-linkedin-icon:before,
+.i-cwf-lock-icon:before,
+.i-cwf-plus-icon:before,
+.i-cwf-podcast-icon:before,
+.i-cwf-printer-icon:before,
+.i-cwf-publication-icon:before,
+.i-cwf-quote-end-icon:before,
+.i-cwf-quote-start-icon:before,
+.i-cwf-report-icon:before,
+.i-cwf-search-icon:before,
+.i-cwf-slideshare-icon:before,
+.i-cwf-twitter-circle-icon:before,
+.i-cwf-twitter-icon:before,
+.i-cwf-video-icon:before,
+.i-cwf-webinar-icon:before,
+.i-cwf-white-paper-icon:before,
+.i-cwf-youtube-icon:before {
+        display: inline-block;
+  font-family: "conduent-icon-font";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+      }
+
+      .i-cwf-arrow-right-icon:before { content: "\f100"; }
+.i-cwf-article-icon:before { content: "\f101"; }
+.i-cwf-blog-icon:before { content: "\f102"; }
+.i-cwf-brochure-icon:before { content: "\f103"; }
+.i-cwf-caret-down:before { content: "\f120"; }
+.i-cwf-caret-down-icon:before { content: "\f104"; }
+.i-cwf-caret-right-icon:before { content: "\f105"; }
+.i-cwf-case-study-icon:before { content: "\f106"; }
+.i-cwf-customer-service-icon:before { content: "\f107"; }
+.i-cwf-download-icon:before { content: "\f108"; }
+.i-cwf-ebook-icon:before { content: "\f109"; }
+.i-cwf-email-icon:before { content: "\f10a"; }
+.i-cwf-fb-icon:before { content: "\f10b"; }
+.i-cwf-form-icon:before { content: "\f10c"; }
+.i-cwf-forward-slash-icon:before { content: "\f10d"; }
+.i-cwf-hamburger-icon:before { content: "\f10e"; }
+.i-cwf-infographic-icon:before { content: "\f10f"; }
+.i-cwf-linkedin-icon:before { content: "\f110"; }
+.i-cwf-lock-icon:before { content: "\f11c"; }
+.i-cwf-plus-icon:before { content: "\f111"; }
+.i-cwf-podcast-icon:before { content: "\f112"; }
+.i-cwf-printer-icon:before { content: "\f113"; }
+.i-cwf-publication-icon:before { content: "\f114"; }
+.i-cwf-quote-end-icon:before { content: "\f121"; }
+.i-cwf-quote-start-icon:before { content: "\f122"; }
+.i-cwf-report-icon:before { content: "\f115"; }
+.i-cwf-search-icon:before { content: "\f116"; }
+.i-cwf-slideshare-icon:before { content: "\f117"; }
+.i-cwf-twitter-circle-icon:before { content: "\f11d"; }
+.i-cwf-twitter-icon:before { content: "\f118"; }
+.i-cwf-video-icon:before { content: "\f119"; }
+.i-cwf-webinar-icon:before { content: "\f11a"; }
+.i-cwf-white-paper-icon:before { content: "\f11b"; }
+.i-cwf-youtube-icon:before { content: "\f123"; }
+    </style>
+
+    <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <script>
+      function toggleCharacters() {
+        var body = document.getElementsByTagName('body')[0];
+        body.className = body.className === 'characters-off' ? '' : 'characters-off';
+      }
+    </script>
+  </head>
+
+  <body class="characters-off">
+    <div id="page" class="container">
+      <header>
+        <h1>conduent-icon-font contains 34 glyphs:</h1>
+        <a onclick="toggleCharacters(); return false;" href="#">Toggle Preview Characters</a>
+      </header>
+
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-arrow-right-icon" class="i-cwf-arrow-right-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-arrow-right-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf100;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-article-icon" class="i-cwf-article-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-article-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf101;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-blog-icon" class="i-cwf-blog-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-blog-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf102;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-brochure-icon" class="i-cwf-brochure-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-brochure-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf103;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-caret-down" class="i-cwf-caret-down"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-caret-down" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf120;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-caret-down-icon" class="i-cwf-caret-down-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-caret-down-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf104;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-caret-right-icon" class="i-cwf-caret-right-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-caret-right-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf105;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-case-study-icon" class="i-cwf-case-study-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-case-study-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf106;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-customer-service-icon" class="i-cwf-customer-service-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-customer-service-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf107;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-download-icon" class="i-cwf-download-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-download-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf108;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-ebook-icon" class="i-cwf-ebook-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-ebook-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf109;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-email-icon" class="i-cwf-email-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-email-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-fb-icon" class="i-cwf-fb-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-fb-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-form-icon" class="i-cwf-form-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-form-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-forward-slash-icon" class="i-cwf-forward-slash-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-forward-slash-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-hamburger-icon" class="i-cwf-hamburger-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-hamburger-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10e;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-infographic-icon" class="i-cwf-infographic-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-infographic-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf10f;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-linkedin-icon" class="i-cwf-linkedin-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-linkedin-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf110;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-lock-icon" class="i-cwf-lock-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-lock-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11c;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-plus-icon" class="i-cwf-plus-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-plus-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf111;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-podcast-icon" class="i-cwf-podcast-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-podcast-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf112;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-printer-icon" class="i-cwf-printer-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-printer-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf113;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-publication-icon" class="i-cwf-publication-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-publication-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf114;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-quote-end-icon" class="i-cwf-quote-end-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-quote-end-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf121;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-quote-start-icon" class="i-cwf-quote-start-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-quote-start-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf122;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-report-icon" class="i-cwf-report-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-report-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf115;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-search-icon" class="i-cwf-search-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-search-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf116;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-slideshare-icon" class="i-cwf-slideshare-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-slideshare-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf117;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-twitter-circle-icon" class="i-cwf-twitter-circle-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-twitter-circle-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11d;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-twitter-icon" class="i-cwf-twitter-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-twitter-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf118;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-video-icon" class="i-cwf-video-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-video-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf119;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-webinar-icon" class="i-cwf-webinar-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-webinar-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11a;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-white-paper-icon" class="i-cwf-white-paper-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-white-paper-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf11b;" />
+        </div>
+      </div>
+      
+      <div class="glyph">
+        <div class="preview-glyphs">
+          <span class="step size-12"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-14"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-16"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-18"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-21"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-24"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-36"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-48"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-60"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span><span class="step size-72"><span class="letters">Pp</span><i id="i-cwf-youtube-icon" class="i-cwf-youtube-icon"></i></span>
+        </div>
+        <div class="preview-scale">
+          <span class="step">12</span><span class="step">14</span><span class="step">16</span><span class="step">18</span><span class="step">21</span><span class="step">24</span><span class="step">36</span><span class="step">48</span><span class="step">60</span><span class="step">72</span>
+        </div>
+        <div class="usage">
+          <input class="class" type="text" readonly="readonly" onClick="this.select();" value=".i-cwf-youtube-icon" />
+          <input class="point" type="text" readonly="readonly" onClick="this.select();" value="&amp;#xf123;" />
+        </div>
+      </div>
+      
+
+      <footer>
+        Made with love using <a href="http://fontcustom.com">Font Custom</a>.
+      </footer>
+    </div>
+  </body>
+</html>
